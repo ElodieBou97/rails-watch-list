@@ -17,6 +17,13 @@ class ListsController < ApplicationController
     redirect_to lists_path
   end
 
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy
+    redirect_to lists_path
+  end
+
+
   def list_params
     params.require(:list).permit(:name)
   end

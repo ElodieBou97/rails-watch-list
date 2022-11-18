@@ -1,4 +1,21 @@
-<% @lists.each do |list| %>
-<%=link_to list.name, list_path(list)%>
-<% end %>
-<%= link_to "create a list", new_list_path %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-creative-black-gold-21st-shanghai-international-film-festival-banner-image_194431.jpg);">
+  <div class="container">
+    <h1><strong>Welcome to your Watchlist</strong></h1>
+    <%# <p>Change your life and learn to code at one of our campuses around the world.</p> %>
+    <%# <a class="btn btn-flat" href="#">Apply now</a> %>
+  </div>
+</div>
+
+<div class="cards">
+
+  <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/id/900901782/fr/photo/cin%C3%A9ma-avec-si%C3%A8ges-rouges-et-%C3%A9cran-blanc.jpg?s=612x612&w=0&k=20&c=ZMghaJaHL-jeBCpgzpDZFfSulVouvTmuQS-AtcMBYGo=)">
+        <ul>
+        <li><%= link_to list.name, list_path(list) %></li>
+        <li><%= link_to "Delete",  list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </ul>
+      </div>
+  <% end %>
+</div>
+
+<li><%= link_to "create a list", new_list_path %></li>
